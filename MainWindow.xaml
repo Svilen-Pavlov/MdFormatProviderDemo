@@ -5,19 +5,24 @@
         Title="MainWindow" Height="350" Width="525" WindowState="Maximized">
     <Grid>
         <Grid x:Name="LayoutRoot" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="288*"/>
+                <ColumnDefinition Width="229*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <telerik:RadButton Name="btnImport" Click="btnImport_Click" Content="Load document" Grid.Row="0"/>
+            <telerik:RadButton Name="btnExport" Click="btnExport_Click" Content="Save File" Grid.Row="0" Grid.Column="1"/>
+            <telerik:RadButton Name="btnImport" Click="btnImport_Click" Content="Open File" Grid.Row="0" Grid.Column="0"/>
 
-            <telerik:DocumentRuler Grid.Row="1">
+            <telerik:DocumentRuler Grid.Row="1" Grid.ColumnSpan="2">
                 <telerik:RadRichTextBox Name="radRichTextBox" LayoutMode="Paged" IsSpellCheckingEnabled="False" />
             </telerik:DocumentRuler>
 
-            <telerik:RadRichTextBoxStatusBar Grid.Row="2"  AssociatedRichTextBox="{Binding ElementName=radRichTextBox, Mode=OneTime}" />
+            <telerik:RadRichTextBoxStatusBar Grid.Row="2"  AssociatedRichTextBox="{Binding ElementName=radRichTextBox, Mode=OneTime}" Grid.ColumnSpan="2" />
 
         </Grid>
     </Grid>
